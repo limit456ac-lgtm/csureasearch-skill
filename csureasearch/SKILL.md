@@ -1,6 +1,6 @@
 ---
 name: csureasearch
-description: "Create or revise Chinese course-review research papers and Word documents with strict university-style requirements: title/cover metadata, template heading styles, figure/table captions, abstract and keywords, deep analytical body text, PDF/literature evidence management, figures from papers, GB/T 7714-2025 references, superscript bracket cross-references, citation order audits, rendered layout QA, and format preservation. Use when the user asks for CSUreasearch, Chinese term-paper review writing, long Word-format literature reviews, reference/citation cleanup, figure placement planning, or PDF-based manuscript drafting."
+description: "Create or revise Chinese course-review research papers and Word documents with strict university-style requirements: title/cover metadata, template heading styles, three-line table formatting, figure/table captions, abstract and keywords, deep analytical body text, PDF/literature evidence management, figures from papers, GB/T 7714-2025 references, superscript bracket cross-references, citation order audits, rendered layout QA, and format preservation. Use when the user asks for CSUreasearch, Chinese term-paper review writing, long Word-format literature reviews, reference/citation cleanup, figure placement planning, or PDF-based manuscript drafting."
 ---
 
 # CSUreasearch
@@ -66,6 +66,13 @@ Use figures only when they support analysis.
 - For redrawn or synthesized figures, caption with "根据文献[序号]整理/改绘".
 - Every figure/table must have a number, caption, source note, and an in-text reference.
 - Apply the template caption styles: figures use `6_图序图名（之间空一格）`; tables use `8_表序表名`.
+- Format every table as a three-line table unless the user or an authoritative template explicitly requires another style:
+  - Use a 1.5 pt top border across the full table (`w:sz=12` in WordprocessingML).
+  - Use a 0.75 pt horizontal rule across the full table immediately below the header row (`w:sz=6`).
+  - Use a 1.5 pt bottom border across the full table (`w:sz=12`).
+  - Remove all vertical borders, left/right outer borders, and other internal horizontal borders.
+  - Keep the header row bold and centered; apply the template table-body style to data rows. Do not use decorative shading unless the template requires it.
+  - For multi-row headers, place the 0.75 pt rule below the final header row, not between header tiers.
 - Keep figure order sequential. If a user adds figures and disrupts citations, fix only citation/reference order unless asked to rewrite.
 - Avoid low-resolution screenshots when a clean redraw or higher-quality PDF capture is possible.
 
@@ -82,7 +89,7 @@ When using the `杨传梁_高超声速飞行器降热设计.docx` template or a 
 - Body style `0_正文`: 宋体 for Chinese, Times New Roman for Latin; 小四/12 pt (`w:sz=24`); first-line indent 2 Chinese characters; exact 20 pt line spacing.
 - Figure caption style `6_图序图名（之间空一格）`: centered; caption placed below the figure; format `图N 图名` with one space between number and title; 楷体 for Chinese, Times New Roman for Latin; 五号/10.5 pt (`w:sz=21`, `w:szCs=22`); exact 20 pt line spacing; 5 pt after.
 - Table caption style `8_表序表名`: centered; caption placed above the table; format `表N 表名` with one space between number and title; 楷体 for Chinese, Times New Roman for Latin; 五号/10.5 pt (`w:sz=21`, `w:szCs=22`); exact 20 pt line spacing; 5 pt before.
-- Table body style `7_表格`: centered; no first-line indent; 五号/10.5 pt (`w:sz=21`); use template table borders, widths, and cell padding where available.
+- Table body style `7_表格`: centered; no first-line indent; 五号/10.5 pt (`w:sz=21`); use template widths and cell padding where available, but enforce the three-line border rules above unless the user explicitly requests otherwise.
 - Use Word automatic heading numbering and TOC generation. Do not type chapter numbers, figure numbers, table numbers, or TOC entries by hand unless the template explicitly requires static text.
 
 ## Word Formatting And QA
@@ -94,6 +101,7 @@ Always treat Word layout as a deliverable.
 - Keep headings, automatic numbering, TOC, captions, and references visually consistent with the template styles.
 - Render the final DOCX to PDF/PNG for visual checking when tools are available.
 - Verify page count, TOC population, no blank/near-blank structural pages except intentional cover/section pages, readable tables, clear figures, correct caption placement, and no overlapping text.
+- Inspect table borders in both OOXML and the rendered document: top and bottom rules must be 1.5 pt, the rule below the final header row must be 0.75 pt, and no vertical or extra internal rules may remain.
 - Audit citation fields: all visible citations should be superscript, 小四, bracketed, sequential, and traceable to a reference entry.
 - Check that every reference is cited and every cited number has a bibliography entry.
 
@@ -125,6 +133,7 @@ Before saying the task is complete, verify:
 - If a page-count requirement is explicitly given, the rendered page count meets it.
 - The title, cover metadata, abstract, keywords, TOC, main text (正文), figures/tables, and references are present.
 - Template heading styles, figure captions, table captions, table body style, and automatic numbering are preserved or correctly applied.
+- Every table uses the required three-line structure with exact 1.5/0.75/1.5 pt horizontal rules unless an explicit exception applies.
 - References are GB/T 7714-2025 style and contain no unwanted access dates.
 - Citation order is sequential after figure captions.
 - No citation cluster exceeds 5 actual references.
