@@ -1,0 +1,7 @@
+interface:
+  display_name: "CSUreasearch"
+  short_description: "中文课程综述写作、Word格式、GB/T引用规范"
+  default_prompt: "Use $csureasearch to draft or revise a Chinese course-review Word document with strict title, body, figure, and GB/T citation requirements."
+
+policy:
+  allow_implicit_invocation: true
